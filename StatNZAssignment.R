@@ -240,38 +240,7 @@ Q7 <- ocp_Finalinc_noNA[ ,c(7,8)]
 
 library(dplyr)
 
-medians <- reorder(Q7$Occupation, Q7$Income, median)
-
-boxplot(Q7$Income ~ medians, las = 2, xlab = "", ylab = "")
-
-View(Q7)
-unique(Q7$Occupation)
-
-
-View(unique(Q7$Occupation))
-
-
-
-
-
 Q7$Income <- as.numeric(Q7$Income)
-
-Q7 %>% 
-  filter(Occupation != "Fitter and Turner"|Occupation !="Biomedical Engineer"|Occupation !="Binder and Finisher") %>% 
-  select(Occupation, Income)
-
-medians <- reorder(Q7$Occupation, Q7$Income, median)
-
-boxplot(Q7$Income ~ medians, las = 2, xlab = "", ylab = "",las=1)
-
-View(Q7)
-unique(Q7$Occupation)
-
-
-
-
-
-
 
 # Boxplot by group
 ggplot(data = Q7, aes(x=reorder(Occupation,Income, FUN = median), y=Income)) +
